@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>View in AR</title>
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+  <title>Colloidal Crystal</title>
   <style>
     body {
       display: flex;
@@ -15,31 +18,30 @@
       background: #f0f0f0;
       gap: 10px;
     }
-    a.ar-button {
-      padding: 12px 24px;
-      font-size: 18px;
-      background-color: #007aff;
+    model-viewer {
+      width:250vw;
+      height: 250vh;
+    }
+    model-viewer::part(ar-button) {
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      
+      background-color: #FF2400;
       color: white;
-      text-decoration: none;
       border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 18px
     }
   </style>
 </head>
 <body>
-  <a class="ar-button" rel="ar" href="https://storage.googleapis.com/nhilab-bucket2/Satellite_Nano%20Banana.usdz">
-    View in Ar
-  </a>
-  <a class="ar-button" rel="ar" href="crystal (3).usdz">
-    View Crystal in AR
-  </a>
-  <a class="ar-button" rel="ar" href="https://storage.googleapis.com/nhilab-bucket2/newfixedcubefinal.usdz">
-    View remeshed
-  </a>
-  <a class="ar-button" rel="ar" href="mec1.usdz">
-    View Mec 1
-  </a>
-  <a class="ar-button" rel="ar" href="baked.usdz">
-    View Mec baked
-  </a>
+  <model-viewer 
+    ios-src="crystal (3).usdz"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    auto-rotate>
+  </model-viewer>
 </body>
 </html>
